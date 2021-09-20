@@ -31,8 +31,8 @@ The following table outlines the OMA-URI settings within the profile.
 
 | Name                      | Description                                                  | OMA-URI                                                      | Value                                                        |
 | ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Block - Apps Local Admins | Defines restrictions for launching  executable applications. | ./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/BlockedExe01/EXE/Policy | Custom XML: [block-apps-local-admins.txt](/assets/files/abac/block-apps-local-admins.txt) |
-| Block - Users PowerShell  | Defines restrictions for launching  executable applications. | ./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/BlockedExe02/EXE/Policy | Custom XML: [block-users-powershell.txt](/assets/files/abac/block-users-powershell.txt) |
+| Block - Apps Local Admins | Defines restrictions for administrator launching executable applications | ./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/BlockedExe01/EXE/Policy | String: [block-apps-local-admins.txt](/assets/files/abac/block-apps-local-admins.txt) |
+| Block - Users PowerShell  | Defines restrictions for users launching executable applications. | ./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/BlockedExe02/EXE/Policy | String: [block-users-powershell.txt](/assets/files/abac/block-users-powershell.txt) |
 
 #### ACSC - Device Restrictions
 
@@ -65,9 +65,14 @@ The following table outlines the configuration settings within the profile.
 | Non-Microsoft account                                        | Block                                                        |
 | **Control Panel and Settings**                               |                                                              |
 | Power  and sleep settings modification (desktop only)        | Block                                                        |
+| Personalization                                              | Block                                                        |
+| Gaming                                                       | Block                                                        |
 | **General**                                                  |                                                              |
+| Internet sharing                                             | Block                                                        |
 | Cortana                                                      | Block                                                        |
+| Device discovery                                             | Block                                                        |
 | Autopilot  Reset                                             | Allow                                                        |
+| Require users to connect to network during device setup      | Require                                                      |
 | Direct  Memory Access                                        | Block                                                        |
 | **Locked Screen Experience**                                 |                                                              |
 | Cortana  on locked screen (Desktop only)                     | Block                                                        |
@@ -125,14 +130,13 @@ The following table outlines the settings within the profile.
 | Enable saving passwords to  the password manager             | Device | \Microsoft Edge\Password  manager and protection             | Disabled                                                     |
 | Intranet Sites: Include all  network paths (UNCs)            | Device | \Windows Components\Internet  Explorer\Internet Control Panel\Security Page | Disabled                                                     |
 | Ads setting for sites with  intrusive ads                    | Device | \Microsoft Edge                                              | Enabled – Block ads on sites  with intrusive ads. (Default value) |
-| Block access to a list of  URLs                              | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Block all ads on Bing search  results                        | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Do Not Track                                       | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Microsoft Defender  SmartScreen                    | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
 | Configure Microsoft Defender  SmartScreen to block potentially unwanted apps | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
 | Control where developer  tools can be used                   | Device | \Microsoft Edge                                              | Enabled – Don’t allow using  the developer tools             |
 | Control which extensions are  installed silently             | Device | \Microsoft Edge\Extensions                                   | Enabled – AGENCY to configure                                |
-| Control which extensions  cannot be installed                | Device | \Microsoft Edge\Extensions                                   | Enabled                                                      |
+| Control which extensions  cannot be installed                | Device | \Microsoft Edge\Extensions                                   | Enabled - *                                                  |
 | Default Adobe Flash setting  (obsolete)                      | Device | \Microsoft Edge\Content  settings                            | Enabled – Block the Adobe  Flash plugin                      |
 | Enable site isolation for  every site                        | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Force Microsoft Defender  SmartScreen checks on downloads from trusted sources | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
